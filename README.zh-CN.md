@@ -88,6 +88,21 @@ export RESEARCH_MEMORY_BOOTSTRAP="$HOME/.research-memory/BOOTSTRAP.md"
 node mcp/research-memory-mcp.mjs
 ```
 
+## npm 安装
+
+发布到 npm 后可使用：
+
+```bash
+npm install -g research-memory-protocol-template
+research-memory-mcp
+```
+
+或者：
+
+```bash
+npx research-memory-protocol-template
+```
+
 ## 给 agent 的提示词
 
 MCP 模式：
@@ -157,4 +172,3 @@ MCP 可以自动写回：
 不要开源你的真实 Obsidian Vault、未发表论文、真实数据、患者信息、真实项目路径或 API key。
 
 本仓库只包含模板和 fake 示例。
-

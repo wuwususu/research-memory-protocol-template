@@ -3,8 +3,17 @@
   "version": "0.1.0",
   "description": "Local-first research memory protocol for AI agents, Obsidian, and MCP.",
   "type": "module",
+  "homepage": "https://github.com/wuwususu/research-memory-protocol-template#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuwususu/research-memory-protocol-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wuwususu/research-memory-protocol-template/issues"
+  },
   "bin": {
-    "research-memory-mcp": "mcp/research-memory-mcp.mjs"
+    "research-memory-mcp": "mcp/research-memory-mcp.mjs",
+    "research-memory-protocol-template": "mcp/research-memory-mcp.mjs"
   },
   "scripts": {
     "smoke": "printf '%s\\n%s\\n' '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}' '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\",\"params\":{}}' | node mcp/research-memory-mcp.mjs",

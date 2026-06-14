@@ -111,6 +111,21 @@ Use the research_memory MCP. First call read_bootstrap, then detect_project, the
 - `list_projects`
 - `file_fingerprint`
 
+## Install from npm
+
+After npm publication:
+
+```bash
+npm install -g research-memory-protocol-template
+research-memory-mcp
+```
+
+Or use it through `npx`:
+
+```bash
+npx research-memory-protocol-template
+```
+
 ## Safety Model
 
 The MCP server can write working memory, not verified conclusions.
