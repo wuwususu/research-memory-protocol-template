@@ -1,0 +1,15 @@
+.env
+*.key
+*.pem
+.DS_Store
+node_modules/
+data/
+raw/
+private/
+*.xlsx
+*.csv
+*.parquet
+*.docx
+*.pdf
+*.pptx
+

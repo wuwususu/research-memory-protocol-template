@@ -1,0 +1,23 @@
+# Research Memory Pointer
+
+Project name: {{project_name}}
+
+Bootstrap:
+`{{bootstrap_path}}`
+
+Project Hub:
+`{{project_hub_path}}`
+
+Project Memory:
+`{{project_memory_path}}`
+
+Rules:
+
+- Do not move old files unless explicitly approved.
+- Link existing materials instead of relocating them.
+- Prefer Project Hub, Project Memory, and Registry summaries before reading old materials in full.
+- AI output is `Unverified until checked`.
+- Write back Task Summary and working memory at task end.
+- Final conclusions require user confirmation.
+- Do not delete figure files unless explicitly approved.
+
