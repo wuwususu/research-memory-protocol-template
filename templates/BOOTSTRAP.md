@@ -10,7 +10,7 @@ It applies to Codex, Pi agent, Claude, Cursor, Gemini, MCP agents, and any other
 
 The formal research memory lives in:
 
-`<YOUR_OBSIDIAN_VAULT>/科研规范_v1.0/`
+`<YOUR_OBSIDIAN_VAULT>/research-memory-vault/`
 
 Agent memory, chat history, MCP memory, Supermemory, agentmemory, or temporary cache may help recall context, but they are not the source of truth.
 
@@ -18,9 +18,9 @@ Agent memory, chat history, MCP memory, Supermemory, agentmemory, or temporary c
 
 For every research-related task, read:
 
-1. `<YOUR_OBSIDIAN_VAULT>/科研规范_v1.0/99_AI入口/AI读取规范入口.md`
-2. `<YOUR_OBSIDIAN_VAULT>/科研规范_v1.0/00_总控/全域科研记忆协议.md`
-3. `<YOUR_OBSIDIAN_VAULT>/科研规范_v1.0/00_总控/外部项目路径映射表.md`
+1. `<YOUR_OBSIDIAN_VAULT>/research-memory-vault/99-ai-entry/ai-readme-entry.md`
+2. `<YOUR_OBSIDIAN_VAULT>/research-memory-vault/00-control/global-research-memory-protocol.md`
+3. `<YOUR_OBSIDIAN_VAULT>/research-memory-vault/00-control/external-project-path-map.md`
 
 ## Project Detection
 
@@ -28,7 +28,7 @@ Before working, determine the target project by this order:
 
 1. Check whether the current working directory contains `.research-memory.md`.
 2. If yes, follow the Project Hub path in that file.
-3. If no, match the current path against `外部项目路径映射表.md`.
+3. If no, match the current path against `external-project-path-map.md`.
 4. If no match is found, ask the user before creating or updating any Project Hub.
 
 ## Minimal Project Read
@@ -108,4 +108,3 @@ These require explicit user confirmation before entering the long-term database 
 If the conversation becomes long, re-read this bootstrap and the project memory files before making file changes or writing final conclusions.
 
 Do not rely on long chat context for project truth.
-

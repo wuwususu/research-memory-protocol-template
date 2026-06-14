@@ -4,13 +4,13 @@ import path from "node:path";
 import os from "node:os";
 import crypto from "node:crypto";
 
-const ROOT = process.env.RESEARCH_MEMORY_ROOT || path.join(os.homedir(), "Documents", "Obsidian Vault", "科研规范_v1.0");
+const ROOT = process.env.RESEARCH_MEMORY_ROOT || path.join(os.homedir(), "Documents", "Obsidian Vault", "research-memory-vault");
 const BOOTSTRAP = process.env.RESEARCH_MEMORY_BOOTSTRAP || path.join(os.homedir(), ".research-memory", "BOOTSTRAP.md");
-const PROTOCOL = process.env.RESEARCH_MEMORY_PROTOCOL || path.join(ROOT, "00_总控", "全域科研记忆协议.md");
-const PATH_MAP = process.env.RESEARCH_MEMORY_PATH_MAP || path.join(ROOT, "00_总控", "外部项目路径映射表.md");
-const PROJECTS_DIR = process.env.RESEARCH_MEMORY_PROJECTS_DIR || path.join(ROOT, "10_科研项目");
+const PROTOCOL = process.env.RESEARCH_MEMORY_PROTOCOL || path.join(ROOT, "00-control", "global-research-memory-protocol.md");
+const PATH_MAP = process.env.RESEARCH_MEMORY_PATH_MAP || path.join(ROOT, "00-control", "external-project-path-map.md");
+const PROJECTS_DIR = process.env.RESEARCH_MEMORY_PROJECTS_DIR || path.join(ROOT, "10-projects");
 
-const serverInfo = { name: "research-memory", version: "1.0.0" };
+const serverInfo = { name: "research-memory", version: "0.1.1" };
 
 function nowIso() {
   return new Date().toISOString();
@@ -39,7 +39,7 @@ function projectDir(projectName) {
 function findProjectDirs() {
   if (!exists(PROJECTS_DIR)) return [];
   return fs.readdirSync(PROJECTS_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory() && d.name !== "00_想法池")
+    .filter((d) => d.isDirectory() && d.name !== "00-idea-pool")
     .map((d) => path.join(PROJECTS_DIR, d.name));
 }
 
@@ -101,7 +101,7 @@ function detectProject(cwd) {
   }
 
   const rows = parseMapRows()
-    .filter((r) => r.externalPath && !r.externalPath.includes("待创建"))
+    .filter((r) => r.externalPath && r.externalPath !== "TBD")
     .sort((a, b) => b.externalPath.length - a.externalPath.length);
   const match = rows.find((r) => resolvedCwd === r.externalPath || resolvedCwd.startsWith(r.externalPath + path.sep));
   if (match) {
@@ -110,8 +110,8 @@ function detectProject(cwd) {
       method: "external_path_map",
       cwd: resolvedCwd,
       projectName: match.projectName,
-      projectHub: match.projectHub === "待创建" ? "" : match.projectHub,
-      projectMemory: match.projectMemory === "待创建" ? "" : match.projectMemory,
+      projectHub: match.projectHub === "TBD" ? "" : match.projectHub,
+      projectMemory: match.projectMemory === "TBD" ? "" : match.projectMemory,
       status: match.status,
       notes: match.notes,
     };
@@ -153,10 +153,10 @@ function makeProjectMemory(projectName) {
 
 ## Current Truth
 
-- Current status: 待补充
-- Current recommended version: 待补充
-- Current main question: 待补充
-- Current main output: 待补充
+- Current status: TBD
+- Current recommended version: TBD
+- Current main question: TBD
+- Current main output: TBD
 - Last meaningful update: ${nowIso()}
 
 ## Stable Decisions
@@ -193,7 +193,7 @@ Only add items here as candidates. Do not mark them verified unless the user con
 }
 
 function makeFigureRegistry(projectName) {
-  const file = path.join(projectDir(projectName), "05_图表", "Figure Registry.md");
+  const file = path.join(projectDir(projectName), "05-figures", "Figure Registry.md");
   const template = `# ${projectName} Figure Registry
 
 ## Rules
@@ -215,7 +215,7 @@ function makeFigureRegistry(projectName) {
 
 function appendTaskSummary(args) {
   if (!args.project_name) throw new Error("project_name is required");
-  const logDir = path.join(projectDir(args.project_name), "08_AI协作记录");
+  const logDir = path.join(projectDir(args.project_name), "08-ai-collaboration");
   const date = new Date().toISOString().slice(0, 10);
   const file = path.join(logDir, `Task Summary ${date}.md`);
   const block = `
@@ -227,39 +227,39 @@ function appendTaskSummary(args) {
 - Date: ${nowIso()}
 - Project: ${args.project_name}
 - Agent: ${args.agent ?? "unknown"}
-- Task: ${args.task ?? "未说明"}
+- Task: ${args.task ?? "Unspecified"}
 
 ## Materials Read
 
-${args.materials_read ?? "- 待补充"}
+${args.materials_read ?? "- TBD"}
 
 ## Actions Completed
 
-${args.actions_completed ?? "- 待补充"}
+${args.actions_completed ?? "- TBD"}
 
 ## Files Created / Modified
 
-${args.files_changed ?? "- 待补充"}
+${args.files_changed ?? "- TBD"}
 
 ## Current Recommended Version
 
-${args.current_recommended_version ?? "- 待补充"}
+${args.current_recommended_version ?? "- TBD"}
 
 ## Unverified Items
 
-${args.unverified_items ?? "- 待补充"}
+${args.unverified_items ?? "- TBD"}
 
 ## Evidence Gaps
 
-${args.evidence_gaps ?? "- 待补充"}
+${args.evidence_gaps ?? "- TBD"}
 
 ## Blockers
 
-${args.blockers ?? "- 无"}
+${args.blockers ?? "- None"}
 
 ## Next Actions
 
-${args.next_actions ?? "- [ ] 待补充"}
+${args.next_actions ?? "- [ ] TBD"}
 
 ## Long-Term Database Decision
 
@@ -269,14 +269,14 @@ ${args.next_actions ?? "- [ ] 待补充"}
   safeAppend(file, block);
   const memory = makeProjectMemory(args.project_name);
   const oneLine = (args.actions_completed ?? args.task ?? "").replace(/\s+/g, " ").slice(0, 180);
-  safeAppend(memory, `| ${nowIso()} | ${args.task ?? "未说明"} | ${oneLine || "见 Task Summary"} | ${args.files_changed ?? "未列出"} | working memory written; final conclusions need user confirmation |\n`);
+  safeAppend(memory, `| ${nowIso()} | ${args.task ?? "Unspecified"} | ${oneLine || "See Task Summary"} | ${args.files_changed ?? "Not listed"} | working memory written; final conclusions need user confirmation |\n`);
   return { file, projectMemory: memory };
 }
 
 function appendFigureVersion(args) {
   if (!args.project_name) throw new Error("project_name is required");
   const registry = makeFigureRegistry(args.project_name);
-  const row = `| ${args.figure_id ?? "Fig"} | ${args.version ?? "v?"} | \`${args.file ?? ""}\` | ${args.status ?? "candidate"} | \`${args.source_data ?? ""}\` | \`${args.script_or_method ?? ""}\` | ${args.modified_reason ?? ""} | ${args.human_verification ?? "未核验"} | ${args.used_in_manuscript ?? "否"} |\n`;
+  const row = `| ${args.figure_id ?? "Fig"} | ${args.version ?? "v?"} | \`${args.file ?? ""}\` | ${args.status ?? "candidate"} | \`${args.source_data ?? ""}\` | \`${args.script_or_method ?? ""}\` | ${args.modified_reason ?? ""} | ${args.human_verification ?? "Unverified"} | ${args.used_in_manuscript ?? "no"} |\n`;
   safeAppend(registry, row);
   return { registry };
 }
@@ -315,7 +315,7 @@ const tools = [
     inputSchema: {
       type: "object",
       properties: {
-        project_name: { type: "string", description: "Project folder name under 10_科研项目." },
+        project_name: { type: "string", description: "Project folder name under 10-projects." },
         cwd: { type: "string", description: "Alternative: detect project from this working directory." },
         include_registries: { type: "boolean", description: "Include common registry files if present." },
       },
@@ -337,12 +337,12 @@ const tools = [
       ];
       if (args.include_registries) {
         files.push(
-          path.join(dir, "03_数据与实验", "Data Registry.md"),
-          path.join(dir, "04_分析与结果", "Result Registry.md"),
-          path.join(dir, "05_图表", "Figure Registry.md"),
-          path.join(dir, "01_文献", "Literature Registry.md"),
-          path.join(dir, "99_归档", "Version Index.md"),
-          path.join(dir, "08_AI协作记录", "AI Collaboration Log.md"),
+          path.join(dir, "03-data", "Data Registry.md"),
+          path.join(dir, "04-results", "Result Registry.md"),
+          path.join(dir, "05-figures", "Figure Registry.md"),
+          path.join(dir, "01-literature", "Literature Registry.md"),
+          path.join(dir, "99-archive", "Version Index.md"),
+          path.join(dir, "08-ai-collaboration", "AI Collaboration Log.md"),
         );
       }
       return contentText(files.map((f) => exists(f) ? `\n\n# ${f}\n\n${readText(f)}` : `\n\n# ${f}\n\n[MISSING]`).join(""));
@@ -475,4 +475,3 @@ process.stdin.on("data", async (chunk) => {
     if (response) process.stdout.write(JSON.stringify(response) + "\n");
   }
 });
-

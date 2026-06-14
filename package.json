@@ -1,6 +1,6 @@
 {
   "name": "research-memory-protocol-template",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Local-first research memory protocol for AI agents, Obsidian, and MCP.",
   "type": "module",
   "homepage": "https://github.com/wuwususu/research-memory-protocol-template#readme",
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "smoke": "printf '%s\\n%s\\n' '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}' '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/list\",\"params\":{}}' | node mcp/research-memory-mcp.mjs",
-    "smoke:fake": "printf '%s\\n%s\\n' '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}' '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"list_projects\",\"arguments\":{}}}' | env RESEARCH_MEMORY_ROOT=\"$PWD/examples/fake-obsidian-vault/科研规范_v1.0\" RESEARCH_MEMORY_BOOTSTRAP=\"$PWD/templates/BOOTSTRAP.md\" node mcp/research-memory-mcp.mjs"
+    "smoke:fake": "printf '%s\\n%s\\n' '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}' '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"list_projects\",\"arguments\":{}}}' | env RESEARCH_MEMORY_ROOT=\"$PWD/examples/fake-obsidian-vault/research-memory-vault\" RESEARCH_MEMORY_BOOTSTRAP=\"$PWD/templates/BOOTSTRAP.md\" node mcp/research-memory-mcp.mjs"
   },
   "keywords": [
     "mcp",

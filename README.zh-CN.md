@@ -71,14 +71,15 @@ cp templates/BOOTSTRAP.md ~/.research-memory/BOOTSTRAP.md
 ### 2. 复制协议文件到 Obsidian
 
 ```bash
-cp templates/全域科研记忆协议.md "<your-vault>/科研规范_v1.0/00_总控/"
-cp templates/外部项目路径映射表.md "<your-vault>/科研规范_v1.0/00_总控/"
+mkdir -p "<your-vault>/research-memory-vault/00-control"
+cp templates/global-research-memory-protocol.md "<your-vault>/research-memory-vault/00-control/"
+cp templates/external-project-path-map.md "<your-vault>/research-memory-vault/00-control/"
 ```
 
 ### 3. 配置 MCP 环境变量
 
 ```bash
-export RESEARCH_MEMORY_ROOT="<your-vault>/科研规范_v1.0"
+export RESEARCH_MEMORY_ROOT="<your-vault>/research-memory-vault"
 export RESEARCH_MEMORY_BOOTSTRAP="$HOME/.research-memory/BOOTSTRAP.md"
 ```
 

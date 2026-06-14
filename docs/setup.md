@@ -26,30 +26,32 @@ with your actual vault path.
 Copy these into your research system:
 
 ```bash
-cp templates/全域科研记忆协议.md "<your-vault>/科研规范_v1.0/00_总控/"
-cp templates/外部项目路径映射表.md "<your-vault>/科研规范_v1.0/00_总控/"
+mkdir -p "<your-vault>/research-memory-vault/00-control"
+cp templates/global-research-memory-protocol.md "<your-vault>/research-memory-vault/00-control/"
+cp templates/external-project-path-map.md "<your-vault>/research-memory-vault/00-control/"
 ```
 
 Copy project templates as needed:
 
 ```bash
-cp templates/Project\\ Memory\\ 模板.md "<your-vault>/科研规范_v1.0/05_模板/"
-cp templates/Figure\\ Registry\\ 模板.md "<your-vault>/科研规范_v1.0/05_模板/"
-cp templates/Task\\ Summary\\ 模板.md "<your-vault>/科研规范_v1.0/05_模板/"
+mkdir -p "<your-vault>/research-memory-vault/05-templates"
+cp templates/project-memory-template.md "<your-vault>/research-memory-vault/05-templates/"
+cp templates/figure-registry-template.md "<your-vault>/research-memory-vault/05-templates/"
+cp templates/task-summary-template.md "<your-vault>/research-memory-vault/05-templates/"
 ```
 
 ## 3. Configure Environment
 
 ```bash
-export RESEARCH_MEMORY_ROOT="<your-vault>/科研规范_v1.0"
+export RESEARCH_MEMORY_ROOT="<your-vault>/research-memory-vault"
 export RESEARCH_MEMORY_BOOTSTRAP="$HOME/.research-memory/BOOTSTRAP.md"
 ```
 
 Optional:
 
 ```bash
-export RESEARCH_MEMORY_PATH_MAP="<your-vault>/科研规范_v1.0/00_总控/外部项目路径映射表.md"
-export RESEARCH_MEMORY_PROJECTS_DIR="<your-vault>/科研规范_v1.0/10_科研项目"
+export RESEARCH_MEMORY_PATH_MAP="<your-vault>/research-memory-vault/00-control/external-project-path-map.md"
+export RESEARCH_MEMORY_PROJECTS_DIR="<your-vault>/research-memory-vault/10-projects"
 ```
 
 ## 4. Configure MCP

@@ -1,4 +1,4 @@
-# 全域科研记忆协议 v1.0
+# Global Research Memory Protocol v1.0
 
 Obsidian Vault is the source of truth.
 
@@ -7,4 +7,3 @@ Agents should first read Project Hub, Project Memory, Existing Intake, and relev
 Write back working memory at task end. Do not write final conclusions as verified unless the user confirms.
 
 Do not delete figure files unless explicitly approved. Track figure versions in Figure Registry.
-

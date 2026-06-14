@@ -12,13 +12,13 @@
 
 | Status | Meaning |
 |---|---|
-| `current` | 当前推荐版本 |
-| `candidate` | 候选版本，仍在比较 |
-| `superseded` | 已被替代，但短期可回滚 |
-| `rejected` | 明确不采用，清理仍需用户确认 |
-| `archived` | 关键历史版、投稿版或不可复现版本，长期保留 |
-| `missing` | Registry 中记录存在，但本地未找到 |
-| `deleted` | 文件已被用户或历史流程删除，仅保留记录 |
+| `current` | Current recommended version |
+| `candidate` | Candidate version still under comparison |
+| `superseded` | Replaced, but still useful for short-term rollback |
+| `rejected` | Explicitly not adopted; cleanup still requires user confirmation |
+| `archived` | Key historical, submitted, or non-reproducible version kept long term |
+| `missing` | Registry record exists, but the local file was not found |
+| `deleted` | File was deleted by the user or a prior workflow; registry keeps metadata only |
 
 ## Figure Versions
 
@@ -31,4 +31,3 @@ Cleanup requires explicit user approval.
 
 | File | Reason | Safe to delete? | User approved? |
 |---|---|---|---|
-

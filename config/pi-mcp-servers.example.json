@@ -6,7 +6,7 @@
         "/ABSOLUTE/PATH/TO/research-memory-protocol-template/mcp/research-memory-mcp.mjs"
       ],
       "env": {
-        "RESEARCH_MEMORY_ROOT": "/ABSOLUTE/PATH/TO/YOUR/Obsidian Vault/科研规范_v1.0",
+        "RESEARCH_MEMORY_ROOT": "/ABSOLUTE/PATH/TO/YOUR/Obsidian Vault/research-memory-vault",
         "RESEARCH_MEMORY_BOOTSTRAP": "/ABSOLUTE/PATH/TO/.research-memory/BOOTSTRAP.md"
       },
       "name": "ResearchMemory",
@@ -14,4 +14,3 @@
     }
   }
 }
-

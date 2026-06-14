@@ -1,6 +1,6 @@
 # Research Memory Protocol Template
 
-中文说明见 [README.zh-CN.md](README.zh-CN.md).
+Chinese documentation: [README.zh-CN.md](README.zh-CN.md).
 
 Local-first research memory protocol for AI agents, Obsidian, and MCP.
 
@@ -31,11 +31,11 @@ research-memory-protocol-template/
     research-memory-mcp.mjs
   templates/
     BOOTSTRAP.md
-    全域科研记忆协议.md
-    外部项目路径映射表.md
-    Project Memory 模板.md
-    Figure Registry 模板.md
-    Task Summary 模板.md
+    global-research-memory-protocol.md
+    external-project-path-map.md
+    project-memory-template.md
+    figure-registry-template.md
+    task-summary-template.md
     .research-memory.md.template
   examples/
     fake-obsidian-vault/
@@ -76,14 +76,15 @@ cp templates/BOOTSTRAP.md ~/.research-memory/BOOTSTRAP.md
 2. Copy protocol files into your Obsidian research system:
 
 ```bash
-cp templates/全域科研记忆协议.md "<your-vault>/科研规范_v1.0/00_总控/"
-cp templates/外部项目路径映射表.md "<your-vault>/科研规范_v1.0/00_总控/"
+mkdir -p "<your-vault>/research-memory-vault/00-control"
+cp templates/global-research-memory-protocol.md "<your-vault>/research-memory-vault/00-control/"
+cp templates/external-project-path-map.md "<your-vault>/research-memory-vault/00-control/"
 ```
 
 3. Configure environment variables:
 
 ```bash
-export RESEARCH_MEMORY_ROOT="<your-vault>/科研规范_v1.0"
+export RESEARCH_MEMORY_ROOT="<your-vault>/research-memory-vault"
 export RESEARCH_MEMORY_BOOTSTRAP="$HOME/.research-memory/BOOTSTRAP.md"
 ```
 

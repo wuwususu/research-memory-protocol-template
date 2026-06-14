@@ -22,8 +22,9 @@ with your actual vault path.
 ## 2. Copy Protocol Files
 
 ```bash
-cp templates/全域科研记忆协议.md "<your-vault>/科研规范_v1.0/00_总控/"
-cp templates/外部项目路径映射表.md "<your-vault>/科研规范_v1.0/00_总控/"
+mkdir -p "<your-vault>/research-memory-vault/00-control"
+cp templates/global-research-memory-protocol.md "<your-vault>/research-memory-vault/00-control/"
+cp templates/external-project-path-map.md "<your-vault>/research-memory-vault/00-control/"
 ```
 
 ## 3. Add a Pointer to Each External Project
@@ -45,10 +46,10 @@ Bootstrap:
 `/Users/you/.research-memory/BOOTSTRAP.md`
 
 Project Hub:
-`/path/to/your/Obsidian Vault/科研规范_v1.0/10_科研项目/Your-Project/00_Project Hub.md`
+`/path/to/your/Obsidian Vault/research-memory-vault/10-projects/Your-Project/00_Project Hub.md`
 
 Project Memory:
-`/path/to/your/Obsidian Vault/科研规范_v1.0/10_科研项目/Your-Project/00_Project Memory.md`
+`/path/to/your/Obsidian Vault/research-memory-vault/10-projects/Your-Project/00_Project Memory.md`
 ```
 
 ## 4. Tell Your Agent
@@ -70,4 +71,3 @@ Cons:
 - The agent must remember to follow file instructions.
 - Project detection and writeback are less structured than MCP tools.
 - Formatting depends more on the agent's discipline.
-

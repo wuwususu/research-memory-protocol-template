@@ -1,4 +1,4 @@
-# 科研诚信与 AI 使用政策
+# Research Integrity and AI Use Policy
 
 ## Core Rule
 
@@ -16,4 +16,3 @@ All AI outputs are `Unverified until checked`.
 - Synthetic data used as research evidence
 - Correlation written as causality
 - Hypothesis written as confirmed mechanism
-
